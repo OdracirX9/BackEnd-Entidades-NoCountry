@@ -1,6 +1,8 @@
 import express from "express";
 import morgan from "morgan";
 import cors from 'cors'
+import { RequestHandler } from "express";
+
 import * as keysEnv from './config'
 
 //IMPORTANDO RUTAS DE PAGINAS
@@ -16,6 +18,9 @@ app.use(express.urlencoded({extended: false}))
 
 
 //RUTAS EN DONDE ESTARAN LAS PAGINAS ASIGANDAS A VISTAS Y EDICION
+app.get('/', (req, res) =>{
+    res.send('BACKEND ENTIDADES')
+})
 app.use('/entidades', EntidadesRouter)
 
 app.set('port', keysEnv.PORT)
